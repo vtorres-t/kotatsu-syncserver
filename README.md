@@ -1,12 +1,6 @@
 # Kotatsu Synchronization Server
 
-[Kotatsu](https://github.com/KotatsuApp/Kotatsu) is a free and open source manga reader for Android platform. Supports a lot of online catalogues on different languages with filters and search, offline reading from local storage, favourites, bookmarks, new chapters notifications and more features.
-
-List of official servers:
-|Domain|Location|Status|
-|---|---|---|
-|sync.kotatsu.app|Belarus|![[Uptime](https://health.kotatsu.app/api/badge/1/status)](https://status.kotatsu.app/api/badge/1/status)|
-|moe.shirizu.org|Netherlands|![[Uptime](https://health.kotatsu.app/api/badge/7/status)](https://status.kotatsu.app/api/badge/7/status)|
+Kotatsu is a free and open source manga reader for Android platform. Supports a lot of online catalogues on different languages with filters and search, offline reading from local storage, favourites, bookmarks, new chapters notifications and more features.
 
 ## What is synchronization?
 
@@ -44,7 +38,7 @@ Yes, you can use your synchronization server in the application by specifying it
 #### Build image container:
 
 ```shell
-docker build github.com/KotatsuApp/kotatsu-syncserver.git -t kotatsuapp/syncserver
+docker build github.com/vtorres-t/kotatsu-syncserver.git -t kotatsuapp/syncserver
 ```
 
 #### Run container:
@@ -69,7 +63,7 @@ In case you don't want others to use your instance, register your accounts then 
 #### Clone the repository:
 
 ```shell
-git clone https://github.com/KotatsuApp/kotatsu-syncserver.git \
+git clone https://github.com/vtorres-t/kotatsu-syncserver.git \
   && cd kotatsu-syncserver
 ```
 
@@ -100,7 +94,7 @@ Requirements:
 Commands:
 
 ```shell
-git clone https://github.com/KotatsuApp/kotatsu-syncserver.git \
+git clone https://github.com/vtorres-t/kotatsu-syncserver.git \
   && cd kotatsu-syncserver \
   && ./gradlew shadowJar
 ```
@@ -114,8 +108,6 @@ cp kotatsu-sync.service /etc/systemd/system \
   && systemctl start kotatsu-sync
 ```
 
-That's all :)
-For any questions, please, contact us in [Telegram group](https://t.me/kotatsuapp) or write an issue, thanks.
 
 ## License
 

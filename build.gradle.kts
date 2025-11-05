@@ -23,8 +23,8 @@ repositories {
 }
 
 tasks.withType<ShadowJar>().configureEach {
-    mergeServiceFiles()
     duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    mergeServiceFiles()
 }
 
 dependencies {
@@ -42,10 +42,12 @@ dependencies {
     implementation(libs.ktorm.support.mysql)
     implementation(libs.flyway.core)
     implementation(libs.flyway.mysql)
+    implementation(libs.flyway.postgresql)
     implementation(libs.hikaricp)
     implementation(libs.argon2)
     implementation(libs.mysql.connector.j)
     implementation(libs.mariadb.java.client)
+    implementation(libs.postgresql.java.client)
     implementation(libs.logback.classic)
     testImplementation(libs.ktor.server.test.host)
     testImplementation(libs.kotlin.test.junit)
