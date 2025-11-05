@@ -1,0 +1,33 @@
+services:
+  db:
+    image: postgres:17.6-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: ${DATABASE_USER:-kotatsu}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:-password}
+      POSTGRES_DB: ${DATABASE_NAME:-kotatsu_db}
+    healthcheck:
+      test: |
+        pg_isready -d "$${POSTGRES_DB}" -U "$${POSTGRES_USER}"
+      start_period: 80s
+      interval: 30s
+      timeout: 60s
+      retries: 5
+    volumes:
+      - ${DATABASE_DATA_PATH:-kotatsu-db}:/var/lib/postgresql/data
+
+  server:
+    extends:
+      service: server
+      file: docker-compose.common.yaml
+    environment:
+      DATABASE_DIALECT: postgresql
+    depends_on:
+      db:
+        condition: service_healthy
+docker-compose:
+  postgresql:
+    yaml:
+volumes:
+  kotatsu-db:

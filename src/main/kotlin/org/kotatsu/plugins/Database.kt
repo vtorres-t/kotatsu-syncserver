@@ -16,6 +16,7 @@ fun Application.configureDatabase() {
     val jdbcDriver = when (dialect.lowercase()) {
         "mariadb" -> "org.mariadb.jdbc.Driver"
         "mysql" -> "com.mysql.cj.jdbc.Driver"
+        "postgresql" -> "org.postgresql.Driver"
         else -> error("Unsupported DATABASE_DIALECT: $dialect")
     }
 
